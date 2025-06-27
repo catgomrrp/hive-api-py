@@ -163,9 +163,8 @@ def dump():
         def dump_catalogue(catalogue):
             print("Starting " + catalogue + "...")
             catalogue_json = []
-            amount = 50
             skip = 0
-            url = base_url + "catalogue/" + str(catalogue) + "?limit=" + str(amount) + "&offset=" + str(skip)
+            url = base_url + "catalogue/" + str(catalogue) + "?limit=50&offset=" + str(skip)
         
             while True:
                 catalogue_response = make_request(url)
@@ -177,7 +176,7 @@ def dump():
                 catalogue_json.append(catalogue_response.json())
             
                 skip = skip + 50
-                url = base_url + "catalogue/" + str(catalogue) + "?limit=" + str(amount) + "&offset=" + str(skip)
+                url = base_url + "catalogue/" + str(catalogue) + "?limit=50&offset=" + str(skip)
             
                 time.sleep(3)
 
